@@ -6,6 +6,6 @@ import "./custom.css";
 
 
 render(
-  <h1>Puta madre!</h1>,
+  <h1 class="text-warning">Visca Catalunya</h1>,
   document.getElementById('app')
 );
