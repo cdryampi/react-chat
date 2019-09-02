@@ -1,0 +1,7 @@
+Programas:
+
+NodeJS
+
+comandos:
+
+npm init
