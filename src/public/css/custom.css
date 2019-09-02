@@ -1,0 +1,52 @@
+body {
+    padding-top: 3.5rem;
+}
+
+.primer {
+    border: 5px dashed yellowgreen;
+}
+
+.margen-superior {
+    margin-top: 10px;
+    display: block;
+}
+
+.resaltado {
+    border-bottom: 3px solid black;
+}
+
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+
+body {
+    padding-top: 3.5rem;
+}
+
+
+/* .row {
+    transition: 300ms all;
+    border: 2px dashed red;
+    background-color: sienna;
+    color: aliceblue;
+}
+
+.row:hover {
+    background: yellow;
+    color: bisque;
+    cursor: pointer;
+} */
+
+#seguir {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    display: block;
+    background: yellow;
+    opacity: 0.5;
+    border: 3px solid black;
+    border-radius: 999px;
+}
+
+#aviso {
+    cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"), auto;
+}
