@@ -1,23 +1,57 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import "./custom.css";
-//import Icon from './img/llaç.png'
-// //import ChatRoom from './components/ChatRoom';
-// function icono(){
-//   const element = document.createElement('div')
-//   const myIcon = new Image()
-//   myIcon.src = Icon;
+import logo from"./img/smartiot.png"
 
-//   element.innerHTML = _.join(['Hello','webpack'],'')
-//   element.classList.add('hello')
-//   myIcon.src = Icon
-//   element.appendChild(myIcon)
-//   return element
-// }
-// document.body.appendChild(icono());
+class App extends Component {
+  render(){
+    return (
+      <div className="container">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top main-nav pl-5 pr-5">
+          <a className="navbar-brand" href="#">
+              <img src={logo} id="logo-menu" />
+          </a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                      <span className="navbar-toggler-icon"></span>
+                    </button>
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+              <ul className="navbar-nav ml-auto ">
+                  <li className="nav-item active">
+                      <a className="nav-link text-uppercase text-primary" href="#">Home
+                            <span className="sr-only">(current)</span>
+                          </a>
+                  </li>
+                  <li className="nav-item">
+                      <a className="nav-link text-uppercase text-primary" href="#">About</a>
+                  </li>
+                  <li className="nav-item">
+                      <a className="nav-link text-uppercase text-primary" href="#">Services</a>
+                  </li>
+                  <li className="nav-item ">
+                      <a className="nav-link text-uppercase text-primary" href="#">Contact</a>
+                  </li>
+              </ul>
+          </div>
+
+  </nav>
+
+  <div className="container">
+    <div className="row">
+        <div className="container mb-5">
+            <h3 className=" text-center mt-5">Messaging</h3>
+            <div className="messaging">
+            </div>
+                </div>
+            </div>
+      </div>
+      </div>      
+    )
+  }
+}
+
+
 render(
-
-  <h1 className="text-warning">Visca Catalunya</h1>,
+  <App/>,
   document.getElementById('app')
 )
 
