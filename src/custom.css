@@ -183,6 +183,7 @@ img {
     font-size: 15px;
     min-height: 48px;
     width: 100%;
+    padding-left: 5px;
 }
 
 .type_msg {
@@ -213,12 +214,25 @@ img {
     overflow-y: auto;
 }
 
+
+/* Yampi pruebas*/
+
 #llaç {
     height: 200px;
     width: 200px;
 }
 
+
+/* tamaño del logo*/
+
 #logo-menu {
     width: 150px;
     height: 85px;
+}
+
+
+/*padding de formulario*/
+
+.input_msg_write input {
+    padding-left: 5px;
 }

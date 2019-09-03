@@ -21,18 +21,19 @@ class App extends Component {
           <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto ">
                   <li className="nav-item active">
-                      <a className="nav-link text-uppercase text-primary" href="#">Inicio
+                    {/* Redireccionar a una página en donde se explicar el funciomiento de la web (usar JS para que se simule una conversación) */}
+                      <a className="nav-link text-uppercase text-info" href="#">Inicio
                             <span className="sr-only">(current)</span>
                           </a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link text-uppercase text-primary" href="#">Tema</a>
+                      <a className="nav-link text-uppercase text-info" href="#">Tema</a>
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link text-uppercase text-primary" href="#">Configuración</a>
+                      <a className="nav-link text-uppercase text-info" href="#">Configuración</a>
                   </li>
                   <li className="nav-item ">
-                      <a className="nav-link text-uppercase text-primary" href="#">Login</a>
+                      <a className="nav-link text-uppercase text-info" href="#">Login</a>
                   </li>
               </ul>
           </div>
@@ -40,10 +41,11 @@ class App extends Component {
   </nav>
 
   <div className="container">
-    <div className="row">
-        <div className="container mb-5">
-            <h3 className=" text-center mt-5">Messaging</h3>
+    <div className="row mt-5">
+        <div className="container mt-5">
+            <h3 className=" text-center mt-5 text-info">Bienvenido al SmartIoT Chat</h3>
             <div className="messaging">
+              {/* Render de la ChatRoom.js */}
               <ChatRoom/>
             </div>
                 </div>
