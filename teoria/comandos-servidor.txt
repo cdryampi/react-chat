@@ -3,5 +3,50 @@ Programas:
 NodeJS
 
 comandos:
-
+// iniciar el servicio
 npm init
+
+
+// Instalar todas las dependencias
+
+npm install package.json 
+
+// instalar dependencias en modo de desarrollo
+
+npm install {package} -D
+
+// Chuleta de git
+
+// iniciar el proyecto
+git init
+
+// conectarse con el repositorio
+
+git remote add origin {link del repositorio}
+
+// revizar el repositorio antes de subir
+
+git pull
+
+// subir el archivo
+
+git push origin master
+
+
+// añadir el .gitignore
+
+"*tpm \nnode_modules/" >> .gitignore
+
+// mirar el estado de git
+
+git status
+
+// mirar los logs de git
+
+git log --pretty=format:"%h %an %ar - %s"
+
+
+// liadas.....
+
+
+
