@@ -24,14 +24,20 @@ class ChatRoom extends Component {
             ]
         }
     }
+
+
     updateMessage(e){
-        console.log(e.target.value)
         this.setState({
             message: e.target.value
         })
     }
     sendMessage(){
-
+                  //Funciones para scroll para los mensajes privados
+                  var container = document.getElementById("scroll")
+                  container.scrollTop = container.scrollHeight+400;
+                  console.log(container.scrollHeight)
+                  console.log(container.scrollTop)
+        
         var imgIn= ''
         var subjectIn= 'out'
         if(this.state.private[this.state.private.length-1]['image'] !=undefined){
@@ -51,6 +57,14 @@ class ChatRoom extends Component {
             subject: subjectIn
         }
         console.log(message)
+        const listMessage = this.state.private
+        listMessage.push(message)
+        this.setState({
+            private: listMessage
+        })
+        this.state.message = ''
+        this.state.private[this.state.private.length+1]
+
     }
 
     render(){
@@ -117,16 +131,16 @@ class ChatRoom extends Component {
               </div>
               {/* fin del input de busqueda de usuarios */}
           </div>
-          <div className="inbox_chat">
+          <div className="inbox_chat" >
               {/* Realizar un bucle para rellenar los div con los usuarios en línea */}
               {currentMessages}
           </div>
           
                     
       </div>
-      <div className="mesgs">
+      <div className="mesgs" >
         {/*  Bloque de código que muestra el mensaje de Usuario 2 IMPORTANTE => hacer un debug para que no incluir un usuario anonimo */}
-          <div className="msg_history">
+          <div className="msg_history" id="scroll">
             {/* bucle de los mensaje privados */}
             {privateMessages}
               {/* Fin de bucle del usuario remitente */}
@@ -134,9 +148,9 @@ class ChatRoom extends Component {
 
           </div>
           {/* DIV que contiene el input para enviar el mensaje. */}
-          <div className="type_msg">
+          <div className="type_msg" >
               <div className="input_msg_write">
-                  <input onChange={this.updateMessage} type="text" className="write_msg" placeholder="Escribe tu mensaje" />
+                  <input value={this.state.message} onChange={this.updateMessage} type="text" className="write_msg" placeholder="Escribe tu mensaje" />
                   <button onClick={this.sendMessage} className="msg_send_btn" type="button"><i className="fa fa-paper-plane-o" aria-hidden="true"></i></button>
               </div>
           </div>
