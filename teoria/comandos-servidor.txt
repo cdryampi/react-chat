@@ -1,4 +1,4 @@
-Programas:
+﻿Programas:
 
 NodeJS
 
@@ -47,6 +47,11 @@ git log --pretty=format:"%h %an %ar - %s"
 
 
 // liadas.....
+
+Restaurar el código..
+
+git checkout -- filename
+
 
 
 
