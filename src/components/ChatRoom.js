@@ -10,7 +10,7 @@ class ChatRoom extends Component {
         super();
         this.updateMessage = this.updateMessage.bind(this)
         this.sendMessage = this.sendMessage.bind(this)
-        this.login = this.login.bind(this)
+
 
         this.state = {
             message: '',
@@ -33,21 +33,6 @@ class ChatRoom extends Component {
         }
     }
 
-    login(){
-
-        const users = {
-            id: this.state.online.length,
-            nombre: 'yampi',
-            date: 'Dec 25',
-            image: 'http://yampi.cat/chat/yampi.png'
-        }
-    
-        console.log(users)
-
-        firebase.database().ref('online/'+ users.id).set(users)
-  
-  
-    }
 
 
     componentDidMount() {
@@ -94,8 +79,8 @@ class ChatRoom extends Component {
              text: this.state.message,
              date: dateIn,
              hora: horaIn,
-             origen: 'Anonimo',
-             destino: 'Anonimo'
+             origen: 'user1',
+             destino: 'user2'
         //     image: imgIn,
         //     subject: subjectIn
          }
