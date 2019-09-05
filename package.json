@@ -20,6 +20,7 @@
         "package.json": "^2.0.1",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
+        "react-google-login": "^5.0.5",
         "style-loader": "^1.0.0",
         "webpack-dev-server": "^3.1.1"
     },

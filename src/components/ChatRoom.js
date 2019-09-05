@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+import GoogleLogin from 'react-google-login'
 
 //Id del proyecto FireBase:
 //reactjs-92066
@@ -8,24 +10,46 @@ class ChatRoom extends Component {
         super();
         this.updateMessage = this.updateMessage.bind(this)
         this.sendMessage = this.sendMessage.bind(this)
-    
+        this.login = this.login.bind(this)
 
         this.state = {
             message: '',
             messages: [
-                    {id: 0, text: 'Realizando test con las imagenes', nombre: 'Yampi', date: 'Dec 25', image: 'http://yampi.cat/chat/yampi.png'},
-                    {id: 1, text: 'Realizando test con las imagenes', nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
-                    {id: 2, text: 'Realizando test con las imagenes', nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'},
-                    {id: 3, text: 'Realizando test con las imagenes', nombre:'Ban', date: 'Dec 25', image: 'http://yampi.cat/chat/reference-image-3.jpg'}
+                    // {id: 0, text: 'Realizando test con las imagenes', nombre: 'Yampi', date: 'Dec 25', image: 'http://yampi.cat/chat/yampi.png'},
+                    // {id: 1, text: 'Realizando test con las imagenes', nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
+                    // {id: 2, text: 'Realizando test con las imagenes', nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'},
+                    // {id: 3, text: 'Realizando test con las imagenes', nombre:'Ban', date: 'Dec 25', image: 'http://yampi.cat/chat/reference-image-3.jpg'}
             ],
             private:[
                 // {id: 0, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
                 // {id: 1, text: 'los errores del git me persiguiran por siempre', date: 'Dec 25', hora: '11:01', subject:'out'},
                 // {id: 2, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
                 
+            ],
+            online:[
+                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
+                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'}
             ]
         }
     }
+
+    login(){
+
+        const users = {
+            id: this.state.online.length,
+            nombre: 'yampi',
+            date: 'Dec 25',
+            image: 'http://yampi.cat/chat/yampi.png'
+        }
+    
+        console.log(users)
+
+        firebase.database().ref('online/'+ users.id).set(users)
+  
+  
+    }
+
+
     componentDidMount() {
         firebase.database().ref('private/').on('value', snapshot => {
           const currentMessages = snapshot.val();
@@ -37,6 +61,8 @@ class ChatRoom extends Component {
           }
     
         });
+
+
       }
 
     updateMessage(e){
@@ -44,10 +70,12 @@ class ChatRoom extends Component {
             message: e.target.value
         })
     }
+
     sendMessage(){
         //Funciones para scroll para los mensajes privados
         var container = document.getElementById("scroll")
-        container.scrollTop = container.scrollHeight+400;
+        container.scrollTop = container.scrollHeight;
+
         console.log(container.scrollHeight)
         console.log(container.scrollTop)
         
@@ -66,6 +94,8 @@ class ChatRoom extends Component {
              text: this.state.message,
              date: dateIn,
              hora: horaIn,
+             origen: 'Anonimo',
+             destino: 'Anonimo'
         //     image: imgIn,
         //     subject: subjectIn
          }
@@ -76,14 +106,16 @@ class ChatRoom extends Component {
         //     private: listMessage
         // })
         // this.state.private[this.state.private.length+1]
+
         console.log(message)
         firebase.database().ref('private/' + message.id).set(message)
+
         this.setState({message:''})
 
     }
 
     render(){
-        const currentMessages = this.state.messages.map((message, i)=>{
+        const currentMessages = this.state.online.map((message, i)=>{
             return (
                 <div className="chat_list active_chat" key={message.id}>
                   <div className="chat_people">

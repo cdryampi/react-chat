@@ -9,9 +9,10 @@ import ChatRoom from './components/ChatRoom'
 
 class App extends Component {
 
-
     render(){
     return (
+
+  
       <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top main-nav pl-5 pr-5">
           <a className="navbar-brand" href="#">
@@ -35,11 +36,11 @@ class App extends Component {
                       <a className="nav-link text-uppercase text-info" href="#">Configuración</a>
                   </li>
                   <li className="nav-item ">
-                      <a className="nav-link text-uppercase text-info" href="#">Login</a>
+                      <a className="nav-link text-uppercase text-info" href="#"  onClick={this.login}>Login</a>
                   </li>
               </ul>
           </div>
-
+          
   </nav>
 
   <div className="container">
