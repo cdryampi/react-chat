@@ -17,10 +17,11 @@
     },
     "homepage": "https://github.com/cdryampi/react-chat#readme",
     "dependencies": {
+        "firebase": "^6.5.0",
         "package.json": "^2.0.1",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
-        "react-google-login": "^5.0.5",
+        "react-with-firebase-auth": "^1.0.4",
         "style-loader": "^1.0.0",
         "webpack-dev-server": "^3.1.1"
     },
