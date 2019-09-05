@@ -25,6 +25,10 @@ class ChatRoom extends Component {
                 // {id: 1, text: 'los errores del git me persiguiran por siempre', date: 'Dec 25', hora: '11:01', subject:'out'},
                 // {id: 2, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
                 
+            ],
+            online:[
+                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
+                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'}
             ]
         }
     }
