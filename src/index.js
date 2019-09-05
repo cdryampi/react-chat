@@ -5,7 +5,7 @@ import logo from"./img/smartiot.png"
 
 //componentes
 import ChatRoom from './components/ChatRoom'
-import Login from './components/Login'
+import Header from './components/Header'
 
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
 
   
       <div className="container">
-        <Login/>
+        <Header/>
 
   <div className="container">
     <div className="row mt-5">

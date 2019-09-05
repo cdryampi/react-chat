@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import GoogleLogin from 'react-google-login'
 
 //Id del proyecto FireBase:
 //reactjs-92066
