@@ -1,30 +1,43 @@
 import React, {Component} from 'react'
 
-
+//Id del proyecto FireBase:
+//reactjs-92066
 
 class ChatRoom extends Component {
     constructor(){
         super();
         this.updateMessage = this.updateMessage.bind(this)
         this.sendMessage = this.sendMessage.bind(this)
+    
 
         this.state = {
             message: '',
             messages: [
                     {id: 0, text: 'Realizando test con las imagenes', nombre: 'Yampi', date: 'Dec 25', image: 'http://yampi.cat/chat/yampi.png'},
-                    {id: 1, text: 'Realizando test con las imagenes', nombre:'alenadro', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
-                    {id: 2, text: 'Realizando test con las imagenes', nombre:'David', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'},
+                    {id: 1, text: 'Realizando test con las imagenes', nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
+                    {id: 2, text: 'Realizando test con las imagenes', nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'},
                     {id: 3, text: 'Realizando test con las imagenes', nombre:'Ban', date: 'Dec 25', image: 'http://yampi.cat/chat/reference-image-3.jpg'}
             ],
             private:[
-                {id: 0, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
-                {id: 1, text: 'los errores del git me persiguiran por siempre', date: 'Dec 25', hora: '11:01', subject:'out'},
-                {id: 2, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
+                // {id: 0, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
+                // {id: 1, text: 'los errores del git me persiguiran por siempre', date: 'Dec 25', hora: '11:01', subject:'out'},
+                // {id: 2, text: 'Hola bon día', date: 'Dec 25', hora: '11:01',image:'http://yampi.cat/chat/david.jpg',subject:'in'},
                 
             ]
         }
     }
-
+    componentDidMount() {
+        firebase.database().ref('private/').on('value', snapshot => {
+          const currentMessages = snapshot.val();
+          
+          if (currentMessages != null) {
+            this.setState({
+              private: currentMessages
+            });
+          }
+    
+        });
+      }
 
     updateMessage(e){
         this.setState({
@@ -32,38 +45,40 @@ class ChatRoom extends Component {
         })
     }
     sendMessage(){
-                  //Funciones para scroll para los mensajes privados
-                  var container = document.getElementById("scroll")
-                  container.scrollTop = container.scrollHeight+400;
-                  console.log(container.scrollHeight)
-                  console.log(container.scrollTop)
+        //Funciones para scroll para los mensajes privados
+        var container = document.getElementById("scroll")
+        container.scrollTop = container.scrollHeight+400;
+        console.log(container.scrollHeight)
+        console.log(container.scrollTop)
         
-        var imgIn= ''
-        var subjectIn= 'out'
-        if(this.state.private[this.state.private.length-1]['image'] !=undefined){
-            imgIn = this.state.private[this.state.private.length-1]['image']
-            subjectIn = 'in'
-        }
-        var MainDate = Date(Date.now()).toLocaleString()
-        console.log(MainDate)
-        var dateIn= MainDate.substring(0,10)
-        var horaIn = MainDate.substring(16,21)
-        const message = {
-            id: this.state.private.length,
-            text: this.state.message,
-            date: dateIn,
-            hora: horaIn,
-            image: imgIn,
-            subject: subjectIn
-        }
+         var imgIn= ''
+         var subjectIn= 'out'
+        // if(this.state.private[this.state.private.length-1]['image'] !=undefined){
+        //     imgIn = this.state.private[this.state.private.length-1]['image']
+        //     subjectIn = 'in'
+        // }
+         var MainDate = Date(Date.now()).toLocaleString()
+         console.log(MainDate)
+         var dateIn= MainDate.substring(0,10)
+         var horaIn = MainDate.substring(16,21)
+         const message = {
+             id: this.state.private.length,
+             text: this.state.message,
+             date: dateIn,
+             hora: horaIn,
+        //     image: imgIn,
+        //     subject: subjectIn
+         }
+        // console.log(message)
+        // const listMessage = this.state.private
+        // listMessage.push(message)
+        // this.setState({
+        //     private: listMessage
+        // })
+        // this.state.private[this.state.private.length+1]
         console.log(message)
-        const listMessage = this.state.private
-        listMessage.push(message)
-        this.setState({
-            private: listMessage
-        })
-        this.state.message = ''
-        this.state.private[this.state.private.length+1]
+        firebase.database().ref('private/' + message.id).set(message)
+        this.setState({message:''})
 
     }
 
