@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import logo from"../img/smartiot.png"
 class Login extends Component {
-    // constructor(){
-    //     super();
-    //     this.login = this.login.bind(this)
-    //     login(){
-    //         const users = {
-    //             id: this.state.online.length,
-    //             nombre: 'yampi',
-    //             date: 'Dec 25',
-    //             image: 'http://yampi.cat/chat/yampi.png'
-    //         }
-        
-    //         console.log(users)
+    constructor(){
+        super();
+        this.login = this.login.bind(this)
+        this.state = {
+            online:[
+                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
+                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'}
+            ]
+
+        }
+    }
+    login(){
+        const users = {
+            id: this.state.online.length,
+            nombre: 'yampi2',
+            date: 'Dec 25',
+            image: 'http://yampi.cat/chat/yampi.png'
+        }
     
-    //         firebase.database().ref('online/'+ users.id).set(users)
-      
-      
-    //     }
-    // }
+        console.log(users)
+
+        firebase.database().ref('online/'+ users.id).set(users)
+  
+  
+    }
         
         
 
