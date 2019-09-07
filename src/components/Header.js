@@ -4,31 +4,7 @@ import logo from"../img/smartiot.png"
 // Components
 import Login from './Login'
 class Header extends Component {
-    /*constructor(){
-        super();
-        this.login = this.login.bind(this)
-        this.state = {
-            online:[
-                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
-                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'}
-            ]
 
-        }
-    }
-    login(){
-        const users = {
-            id: this.state.online.length,
-            nombre: 'yampi2',
-            date: 'Dec 25',
-            image: 'http://yampi.cat/chat/yampi.png'
-        }
-    
-        console.log(users)
-
-        firebase.database().ref('online/'+ users.id).set(users)
-  
-  
-    }*/
         
         
 

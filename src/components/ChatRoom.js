@@ -26,8 +26,8 @@ class ChatRoom extends Component {
                 
             ],
             online:[
-                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg'},
-                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg'}
+                {id: 0, nombre:'David', date: 'Dec 25', image:'http://yampi.cat/chat/david.jpg',description: 'Programador web'},
+                {id: 1, nombre:'Alejandro', date: 'Dec 25', image: 'http://yampi.cat/chat/alejandro.jpg', description: 'Administrador de sistemas'}
             ]
         }
     }
@@ -106,7 +106,7 @@ class ChatRoom extends Component {
                       <div className="chat_img"> <img src={message.image} alt="sunil"/> </div>
                       <div className="chat_ib">
                           <h5>{message.nombre} <span className="chat_date">{message.date}</span></h5>
-                          <p>{message.text}</p>
+                          <p>{message.description}</p>
                       </div>
                   </div>
               </div>
